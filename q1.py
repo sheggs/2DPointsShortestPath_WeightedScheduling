@@ -41,8 +41,10 @@ print("Length of Array: " + str(len(array_cord)))
 
 # Question 1
 print("Q1: Sort")
-# for i in range(0,len(array_cord)):
-#     print(array_cord[i]);
+stringContainer = ""
+for i in range(0,len(array_cord)):
+    stringContainer += (array_cord[i]) + ", ";
+print(stringContainer)
 # Question 2
 print("Q2: Middle co-ord")
 middle,middleIndex = middleCoOrd(array_cord)
@@ -108,4 +110,12 @@ for i in range(0,len(array_cord)):
     if float(x) < rightMiddle and float(x) > middle:
         stringContainer += (array_cord[i])
 print(stringContainer)
+#Question 9
+print("Q9: Comma-separated indices of points to the right of LR ")
 
+stringContainer = ""
+for i in range(0,len(array_cord)):
+    x, y = grabPoints(array_cord[i])
+    if float(x) > rightMiddle:
+        stringContainer += (array_cord[i])
+print(stringContainer)
