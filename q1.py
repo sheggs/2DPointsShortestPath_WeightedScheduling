@@ -1,4 +1,4 @@
-
+### FIX ALL QUESTIONS BECAUSE U NEED INDICIES NOT CO-ORD
 def grabPoints(value):
     value = value.replace('(',"")
     value = value.replace(")","")
@@ -22,18 +22,19 @@ def sort(array_cord):
     return array_cord;
 def middleCoOrd(arr):
     middle = int(len(arr) / 2)
-    print("Middle Index: " + str(len(arr)/2))
+    #print("Middle Index: " + str(len(arr)/2))
     x, y = grabPoints(arr[middle - 1])
     x1, y1 = grabPoints((arr[middle]))
     x = float(x)
     x1 = float(x1)
     avg_splitline = x + x1
-    print("XCORD: " + str(avg_splitline / 2))
+    #print("XCORD: " + str(avg_splitline / 2))
     return avg_splitline / 2,middle;
 
 coord = "(-3.0, -6.0)/(-6.0, -5.0)/(-5.0, 3.0)/(1.0, 5.0)/(-4.0, -1.0)/(5.0, 6.0)/(-1.0, 4.0)/(6.0, -7.0)"
 coord1 = "";
 coord2 = "";
+static_cord = coord.split("/")
 array_cord = coord.split("/")
 
 array_cord = sort(array_cord);
@@ -78,8 +79,12 @@ print("Q5: Split X-CORD")
 # coord 1 = Left list | coord2 = Right lsit
 print("Split for Left list, LL")
 leftMiddle,LL = middleCoOrd(coord1);
+print("Middle L: " + str(leftMiddle))
+print("L Index (LL): " + str(LL))
 print("Split for right List. LR")
 rightMiddle,RR = middleCoOrd(coord2)
+print("Middle R: " + str(rightMiddle))
+print("R Index (LR): " + str(RR))
 RR = int(RR)
 # Question 6
 print("Q6: Comma-separated indices of points to the left of LL ")
@@ -119,3 +124,31 @@ for i in range(0,len(array_cord)):
     if float(x) > rightMiddle:
         stringContainer += (array_cord[i])
 print(stringContainer)
+
+
+#Question 10: Completed on Java COM2031_CW file
+print("Q10: Comma-separated indices of the points SL that are in the strip around LL (leave empty if none):")
+
+# middle,middleIndex = middleCoOrd(array_cord)
+# print(middle)
+# print(middleIndex)
+# stringContainer = ""
+# d = 2.23606797749979
+# print("INDEX LIST")
+# for i in range(0,len(static_cord)):
+#     x, y = grabPoints(static_cord[i])
+#     if float(x) < middle and float(x) > middle - 2.23606797749979:
+#         #print(float(x))
+#         stringContainer += str(i) + ","
+#
+#     if float(x) > middle and float(x) < middle + 2.23606797749979:
+#         #print("__ POINT __")
+#         #print(float(x))
+#         stringContainer += str(i) + ","
+#
+# print(stringContainer)
+
+# Question 11: Completed on Java COM2031_CW file
+print("Q11: Minimal distance dL between all points to the left of L: 4.123105625617661")
+
+
