@@ -159,6 +159,14 @@ for i in range(0,len(array_cord)):
     if float(x) < rightMiddle and float(x) > middle:
         stringContainer += (array_cord[i])
 print(stringContainer)
+Q8_ARR = stringContainer.split("/")
+stringContainer = ""
+for i in range(0,len(Q8_ARR)):
+    if(i == (len(Q7_ARR) - 1)):
+        stringContainer += str(findPos(Q7_ARR[i], static_cord))
+    else:
+        stringContainer += str(findPos(Q7_ARR[i],static_cord)) + ","
+print(stringContainer)
 #Question 9
 print("Q9: Comma-separated indices of points to the right of LR ")
 
@@ -172,7 +180,21 @@ print(stringContainer)
 
 #Question 10: Completed on Java COM2031_CW file
 print("Q10: Comma-separated indices of the points SL that are in the strip around LL (leave empty if none):")
-
+min_d_fromJava = 5.0990195135927845;
+lowerBound = leftMiddle - min_d_fromJava;
+upperBound = leftMiddle + min_d_fromJava;
+temp_array = [];
+Q10coord_storage = ""
+Q10point_storage = ""
+for i in range(0,len(coord1)):
+    x,y = grabPoints(coord1[i])
+    x = float(x)
+    if(x>lowerBound or x<upperBound):
+        Q10coord_storage += coord1[i] + ","
+        Q10point_storage += str(findPos(coord1[i], static_cord)) + ","
+print("Upper Bound: " + str(upperBound) + " | Lower Bound: " + str(lowerBound))
+print("- Coord : " + Q10coord_storage);
+print("- Point : " + Q10point_storage)
 # middle,middleIndex = middleCoOrd(array_cord)
 # print(middle)
 # print(middleIndex)
