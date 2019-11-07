@@ -36,21 +36,21 @@ public class ClosestPair {
 	}
 	public double abs(double a) { return Math.abs(a);}
 	public double calculateDistance(Point a, Point b) {
-		System.out.println("( " + a.getX() + "- "+ b.getX() + ") ^ 2 + " + " ( " + a.getY() + " - " + b.getY() + ") ^ 2");
+//		System.out.println("( " + a.getX() + "- "+ b.getX() + ") ^ 2 + " + " ( " + a.getY() + " - " + b.getY() + ") ^ 2");
 		//Math.sqrt(((abs(a.getX()) - abs(b.getX()))*(abs(a.getX()) - abs(b.getX()))) - ((abs(a.getY()) - abs(b.getY()))*(abs(a.getY()) - abs(b.getY()))));
 		double calculation = ((a.X()) - (b.X()))*((a.X()) - (b.X())) + (((a.Y()) - (b.Y()))*((a.Y()) - (b.Y())));
-		System.out.println("hi");
-		System.out.println("CALC: " + calculation);
+//		System.out.println("hi");
+//		System.out.println("CALC: " + calculation);
 		return Math.sqrt(calculation);
 	}
 	public double forceCalculate(Point[] points, int d) {
 		double min = Double.MAX_VALUE;
-		System.out.println("LEN " + points.length);
-		System.out.println(points[0]);
+//		System.out.println("LEN " + points.length);
+//		System.out.println(points[0]);
 		double dist = 0;
 		for(int i = 0; i<points.length;i++) {
 			for(int j = i + 1; j<points.length;j++) {
-				System.out.println("SKR SKR");
+//				System.out.println("SKR SKR");
 				dist = calculateDistance(points[i], points[j]);
 				min = min(min, dist);
 
@@ -65,13 +65,12 @@ public class ClosestPair {
 			return forceCalculate(points, points.length);
 		}
 		System.out.println("mid" + middle + "len " + points.length);
-		// AINT WORKING FOR 4 LL  
 		
 		Point[] aux = Arrays.copyOfRange(points, 0, middle );
-		System.out.println(aux.length);
+		//System.out.println(aux.length);
 	
 		Point[] aux2 = Arrays.copyOfRange(points, middle , points.length );
-		System.out.println(aux2.length);
+		//System.out.println(aux2.length);
 		double d1 = calcClosestPair(aux);
 		double d2 = calcClosestPair(aux2);
 		System.out.println(d1 + " " + d2);

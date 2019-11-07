@@ -30,7 +30,10 @@ def middleCoOrd(arr):
     avg_splitline = x + x1
     #print("XCORD: " + str(avg_splitline / 2))
     return avg_splitline / 2,middle;
-
+def findPos(x,arr):
+    for i in range(0, len(arr)):
+        if(arr[i] == x):
+            return i
 coord = "(-3.0, -6.0)/(-6.0, -5.0)/(-5.0, 3.0)/(1.0, 5.0)/(-4.0, -1.0)/(5.0, 6.0)/(-1.0, 4.0)/(6.0, -7.0)"
 coord1 = "";
 coord2 = "";
@@ -44,11 +47,22 @@ print("Length of Array: " + str(len(array_cord)))
 print("Q1: Sort")
 stringContainer = ""
 for i in range(0,len(array_cord)):
-    stringContainer += (array_cord[i]) + ", ";
+    if(i == (len(array_cord) - 1)):
+        stringContainer += (array_cord[i]);
+    else:
+        stringContainer += (array_cord[i]) + "/";
 print(stringContainer)
+stringContainer = ""
+for i in range(0,len(array_cord)):
+    if(i == (len(array_cord) - 1)):
+        stringContainer += str(findPos(array_cord[i], static_cord))
+    else:
+        stringContainer += str(findPos(array_cord[i],static_cord)) + ","
+print(stringContainer);
 # Question 2
 print("Q2: Middle co-ord")
 middle,middleIndex = middleCoOrd(array_cord)
+print(middle);
 # print(middle)
 # print(array_cord[int(middle) - 1])
 # Question 3
@@ -59,8 +73,16 @@ for i in range(0,middleIndex):
         stringContainer += array_cord[i]
     else:
         stringContainer += array_cord[i] + "/"
-#LEFT LIST
+print(stringContainer)
 coord1 = stringContainer.split("/")
+LeftList = stringContainer.split("/")
+stringContainer = ""
+for i in range(0,len(LeftList)):
+    if(i == (len(LeftList) - 1)):
+        stringContainer += str(findPos(LeftList[i], static_cord))
+    else:
+        stringContainer += str(findPos(LeftList[i],static_cord)) + ","
+#LEFT LIST
 print(stringContainer)
 # Question 3
 print("Q4: Right List")
@@ -72,8 +94,16 @@ for i in range(middleIndex, len(array_cord)):
         stringContainer += array_cord[i] + "/"
 
 print(stringContainer)
-#RIGHT LIST
+RightList = stringContainer.split("/")
 coord2 = stringContainer.split("/")
+stringContainer = ""
+for i in range(0,len(RightList)):
+    if(i == (len(RightList) - 1)):
+        stringContainer += str(findPos(RightList[i], static_cord))
+    else:
+        stringContainer += str(findPos(RightList[i],static_cord)) + ","
+print(stringContainer)
+#RIGHT LIST
 # Question 5
 print("Q5: Split X-CORD")
 # coord 1 = Left list | coord2 = Right lsit
@@ -96,16 +126,30 @@ for i in range(0,LL):
     else:
         stringContainer += coord1[i] + "/"
 print(stringContainer)
-
+LL_ARR = stringContainer.split("/")
+stringContainer = ""
+for i in range(0,len(LL_ARR)):
+    if(i == (len(LL_ARR) - 1)):
+        stringContainer += str(findPos(LL_ARR[i], static_cord))
+    else:
+        stringContainer += str(findPos(LL_ARR[i],static_cord)) + ","
+print(stringContainer)
 # Question 7
 print("Q7: Comma-separated indices of points to the right of LL but left of L")
 stringContainer = ""
 for i in range(0,len(array_cord)):
     x, y = grabPoints(array_cord[i])
     if float(x) > leftMiddle and float(x) < middle:
-        stringContainer += (array_cord[i])
+        stringContainer += (array_cord[i]) + "/"
 print(stringContainer)
-
+Q7_ARR = stringContainer.split("/")
+stringContainer = ""
+for i in range(0,len(Q7_ARR)):
+    if(i == (len(Q7_ARR) - 1)):
+        stringContainer += str(findPos(Q7_ARR[i], static_cord))
+    else:
+        stringContainer += str(findPos(Q7_ARR[i],static_cord)) + ","
+print(stringContainer)
 
 # Question 8
 print("Q8: Comma-separated indices of points to the left of LR but right of L")
@@ -149,6 +193,8 @@ print("Q10: Comma-separated indices of the points SL that are in the strip aroun
 # print(stringContainer)
 
 # Question 11: Completed on Java COM2031_CW file
-print("Q11: Minimal distance dL between all points to the left of L: 4.123105625617661")
+print("Q11: Minimal distance dL between all points to the left of L: ")
+#print("4.123105625617661")
+
 
 
