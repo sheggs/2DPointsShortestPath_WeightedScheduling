@@ -215,8 +215,9 @@ print("- Point : " + Q10point_storage)
 # print(stringContainer)
 
 # Question 11: Completed on Java COM2031_CW file
-print("Q11: Minimal distance dL between all points to the left of L: ")
-#print("4.123105625617661")
+print("Q11: Minimal distance dL between all points to the left of L: 5.0990195135927845")
+# Strip Calculation: On Java use this {new Point(-6.0,-5.0),new Point(-5.0,3.0),new Point(-4.0,-1.0),new Point(-3.0,-6.0)}
 
+print("Q12: ")
 
 

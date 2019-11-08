@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ClosestPair {
 	
@@ -43,6 +45,20 @@ public class ClosestPair {
 //		System.out.println("CALC: " + calculation);
 		return Math.sqrt(calculation);
 	}
+	public double calcStrip(Point[] stripPoints, double d) {
+		// Sort by Y
+		double min = d;
+		stripPoints = sortPointsByY(stripPoints);
+		
+		for(int i = 0; i<stripPoints.length; i++) {
+			for(int j = 1; j<stripPoints.length ; j++) {
+				min = min(min, calculateDistance(stripPoints[i],stripPoints[j]));
+			}
+		}
+		
+		return min;
+		
+	}
 	public double forceCalculate(Point[] points, int d) {
 		double min = Double.MAX_VALUE;
 //		System.out.println("LEN " + points.length);
@@ -57,6 +73,7 @@ public class ClosestPair {
 
 			}
 		}
+		System.out.println("MIN: " + min);
 		return min;
 	}
 	public double calcClosestPair(Point[] points) {
@@ -76,9 +93,24 @@ public class ClosestPair {
 		System.out.println(d1 + " " + d2);
 		double d = min(d1,d2);
 		// Only gets Delta
-		return d;
+		List<Point> strip = new ArrayList<Point>();
+		double midPoint = (points[middle - 1].X() + points[middle].X())/2;
+		for(int i = 0; i<points.length;i++) {
+			if(((d+midPoint) > points[i].X()) && (midPoint-d) < points[i].X()) {
+				strip.add(points[i]);
+			}
+		}
+		System.out.println(midPoint);
+		//displayList(strip);
+		return d; 
 	}
-	// {-3.0,-6.0},{-6.0,-5.0},{-5.0,3.0},{1.0,5.0},{-4.0,-1.0},{5.0,6.0},{-1.0,4.0},{6.0,-7.0}
+	public void displayList(List<Point> t) {
+		for(Point a : t) {
+			System.out.print("(" + a.X() + "," + a.Y() + ") ");
+		}
+		System.out.println();
+	}
+	// {-3.0,-6.0}#,{-6.0,-5.0},{-5.0,3.0},{1.0,5.0},{-4.0,-1.0},{5.0,6.0},{-1.0,4.0},{6.0,-7.0}
 	public double min(double d1, double d2) {
 		return (d1<d2) ? d1:d2;
 	}
