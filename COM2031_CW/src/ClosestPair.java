@@ -116,7 +116,7 @@ public class ClosestPair {
 	}
 	public static void main(String args[]) {
 		ClosestPair p = new ClosestPair(new Point[] {new Point(-3.0,-6.0),new Point(-6.0,-5.0),new Point(-5.0,3.0),new Point(1.0,5.0),new Point(-4.0,-1.0),new Point(5.0,6.0),new Point(-1.0,4.0),new Point(6.0,-7.0)} );
-		
+		System.out.println(p.forceCalculate(new Point[] {new Point(-4,-1),new Point(-3 ,-6),new Point(-1,4) },0));
 		for(int i = 0; i< p.getPoints().length;i++) {
 			System.out.print("(" + p.getPoints()[i].getX() + "," + p.getPoints()[i].getY() + ")");
 		}

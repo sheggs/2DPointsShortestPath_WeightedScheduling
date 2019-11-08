@@ -189,7 +189,7 @@ Q10point_storage = ""
 for i in range(0,len(coord1)):
     x,y = grabPoints(coord1[i])
     x = float(x)
-    if(x>lowerBound or x<upperBound):
+    if(x>lowerBound and x<upperBound):
         Q10coord_storage += coord1[i] + ","
         Q10point_storage += str(findPos(coord1[i], static_cord)) + ","
 print("Upper Bound: " + str(upperBound) + " | Lower Bound: " + str(lowerBound))
@@ -218,6 +218,42 @@ print("- Point : " + Q10point_storage)
 print("Q11: Minimal distance dL between all points to the left of L: 5.0990195135927845")
 # Strip Calculation: On Java use this {new Point(-6.0,-5.0),new Point(-5.0,3.0),new Point(-4.0,-1.0),new Point(-3.0,-6.0)}
 
-print("Q12: ")
+print("Q12: Comma-separated list of indices i of the points SR that are in the δ-strip around LR (leave empty if none): dR 2.23606797749979 ")
+min_d_fromJava = 2.23606797749979;
+lowerBound = rightMiddle - min_d_fromJava;
+upperBound = rightMiddle + min_d_fromJava;
+Q11coord_storage = ""
+Q11point_storage = ""
+for i in range(0,len(coord2)):
+    x,y = grabPoints(coord2[i])
+    x = float(x)
+    if(x>lowerBound and x<upperBound):
+        Q11coord_storage += coord2[i] + ","
+        Q11point_storage += str(findPos(coord2[i], static_cord)) + ","
+print("Upper Bound: " + str(upperBound) + " | Lower Bound: " + str(lowerBound))
+print("- Coord : " + Q11coord_storage);
+print("- Point : " + Q11point_storage)
 
+
+print("Q13: Minimal distance δR between all points to the right of L: 2.23606797749979")
+
+print("Q14: Comma-separated list of indices i of the points that are in the δ-strip around L (leave empty if none):")
+print("d = 2.236")
+min_d_fromJava = 2.23606797749979;
+lowerBound = middle - min_d_fromJava;
+upperBound = middle + min_d_fromJava;
+Q14coord_storage = ""
+Q14point_storage = ""
+for i in range(0,len(array_cord)):
+    x,y = grabPoints(array_cord[i])
+    x = float(x)
+    if(x>lowerBound and x<upperBound):
+        Q14coord_storage += array_cord[i] + ","
+        Q14point_storage += str(findPos(array_cord[i], static_cord)) + ","
+print("Upper Bound: " + str(upperBound) + " | Lower Bound: " + str(lowerBound))
+print("- Coord : " + Q14coord_storage);
+print("- Point : " + Q14point_storage)
+
+
+print("Q15: d=2.23606797749979")
 
