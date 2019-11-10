@@ -74,10 +74,15 @@ public class Schedule {
 //		Schedule t = new Schedule(new Job[] {new Job("A",3,10,20), new Job("B",1,2,50), new Job("C",6,19,100),new Job("D",2,100,200)});
 		t.display();
 		System.out.println(t.OPT(t.getJobs().length - 1));
+		System.out.println("M");
 		for(int i = 0; i<t.getM().length; i ++) {
 			System.out.println(i + " " + t.getM()[i]);
 		}
 		System.out.println();
+		System.out.println("P");
+		for(int i = 0; i<t.getM().length; i ++) {
+			System.out.println(i + " " + t.p(i));
+		}
 //		System.out.println(t.p(t.getJobs().length - 1).getName());
 //		System.out.println(t.p(t.getJobs().length - 3).getName());
 //		System.out.println(max(10,3));

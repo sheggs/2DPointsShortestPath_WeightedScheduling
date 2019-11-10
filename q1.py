@@ -157,15 +157,15 @@ stringContainer = ""
 for i in range(0,len(array_cord)):
     x, y = grabPoints(array_cord[i])
     if float(x) < rightMiddle and float(x) > middle:
-        stringContainer += (array_cord[i])
+        stringContainer += (array_cord[i]) + "/"
 print(stringContainer)
 Q8_ARR = stringContainer.split("/")
 stringContainer = ""
 for i in range(0,len(Q8_ARR)):
-    if(i == (len(Q7_ARR) - 1)):
-        stringContainer += str(findPos(Q7_ARR[i], static_cord))
+    if(i == (len(Q8_ARR) - 1)):
+        stringContainer += str(findPos(Q8_ARR[i], static_cord))
     else:
-        stringContainer += str(findPos(Q7_ARR[i],static_cord)) + ","
+        stringContainer += str(findPos(Q8_ARR[i],static_cord)) + ","
 print(stringContainer)
 #Question 9
 print("Q9: Comma-separated indices of points to the right of LR ")
@@ -174,9 +174,16 @@ stringContainer = ""
 for i in range(0,len(array_cord)):
     x, y = grabPoints(array_cord[i])
     if float(x) > rightMiddle:
-        stringContainer += (array_cord[i])
+        stringContainer += (array_cord[i]) + "/"
 print(stringContainer)
-
+Q9_ARR = stringContainer.split("/")
+stringContainer = ""
+for i in range(0,len(Q9_ARR)):
+    if(i == (len(Q9_ARR) - 1)):
+        stringContainer += str(findPos(Q9_ARR[i], static_cord))
+    else:
+        stringContainer += str(findPos(Q9_ARR[i],static_cord)) + ","
+print(stringContainer)
 
 #Question 10: Completed on Java COM2031_CW file
 print("Q10: Comma-separated indices of the points SL that are in the strip around LL (leave empty if none):")
