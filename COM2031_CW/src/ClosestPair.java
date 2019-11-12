@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import WeightedIntervalScheduleMemoization.Job;
+import WeightedIntervalScheduleMemoization.Schedule;
+
 public class ClosestPair {
 	
 	private Point[] points;
@@ -47,12 +50,17 @@ public class ClosestPair {
 	}
 	public double calcStrip(Point[] stripPoints, double d) {
 		// Sort by Y
-		double min = d;
+		double min = Double.MAX_VALUE;
 		stripPoints = sortPointsByY(stripPoints);
 		
 		for(int i = 0; i<stripPoints.length; i++) {
 			for(int j = 1; j<stripPoints.length ; j++) {
+				if(calculateDistance(stripPoints[i],stripPoints[j]) == 0.0) {
+					
+				}else {
 				min = min(min, calculateDistance(stripPoints[i],stripPoints[j]));
+				//System.out.println("C: " + calculateDistance(stripPoints[i],stripPoints[j]));
+				}
 			}
 		}
 		
@@ -63,11 +71,12 @@ public class ClosestPair {
 		double min = Double.MAX_VALUE;
 //		System.out.println("LEN " + points.length);
 //		System.out.println(points[0]);
-		double dist = 0;
+		double dist = Double.MAX_VALUE;
 		for(int i = 0; i<points.length;i++) {
 			for(int j = i + 1; j<points.length;j++) {
 //				System.out.println("SKR SKR");
 				dist = calculateDistance(points[i], points[j]);
+				//System.out.println("B: "  + dist);
 				min = min(min, dist);
 
 
@@ -100,9 +109,19 @@ public class ClosestPair {
 				strip.add(points[i]);
 			}
 		}
-		System.out.println(midPoint);
-		//displayList(strip);
-		return d; 
+		System.out.println("A: " + calcStrip(conv(strip), d));
+		
+		return min(d,calcStrip(conv(strip),d)); 
+	}
+	public Point[] conv(List<Point> s) {
+		Point[] temp = new Point[s.size()];
+		for(int i = 0; i<s.size(); i++) {
+			temp[i] = s.get(i);
+		}
+//		for(int i = 0; i<s.size(); i++) {
+//			System.out.println("A : " + temp[i].getX());
+//		}
+		return temp;
 	}
 	public void displayList(List<Point> t) {
 		for(Point a : t) {
@@ -115,8 +134,9 @@ public class ClosestPair {
 		return (d1<d2) ? d1:d2;
 	}
 	public static void main(String args[]) {
+		//ClosestPair p = new ClosestPair(new Point[] {new Point(-3.0,-6.0),new Point(-6.0,-5.0),new Point(-5.0,3.0),new Point(1.0,5.0),new Point(-4.0,-1.0),new Point(5.0,6.0),new Point(-1.0,4.0),new Point(6.0,-7.0)} );
 		ClosestPair p = new ClosestPair(new Point[] {new Point(-3.0,-6.0),new Point(-6.0,-5.0),new Point(-5.0,3.0),new Point(1.0,5.0),new Point(-4.0,-1.0),new Point(5.0,6.0),new Point(-1.0,4.0),new Point(6.0,-7.0)} );
-		System.out.println(p.forceCalculate(new Point[] {new Point(-4,-1),new Point(-3 ,-6),new Point(-1,4) },0));
+		//System.out.println(p.forceCalculate(new Point[] {new Point(-4,-1),new Point(-3 ,-6),new Point(-1,4) },0));
 		for(int i = 0; i< p.getPoints().length;i++) {
 			System.out.print("(" + p.getPoints()[i].getX() + "," + p.getPoints()[i].getY() + ")");
 		}
@@ -125,3 +145,4 @@ public class ClosestPair {
 	}
 	///(-3.0, -6.0)
 }
+

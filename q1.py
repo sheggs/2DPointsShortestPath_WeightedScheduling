@@ -187,7 +187,7 @@ print(stringContainer)
 
 #Question 10: Completed on Java COM2031_CW file
 print("Q10: Comma-separated indices of the points SL that are in the strip around LL (leave empty if none):")
-min_d_fromJava = 5.0990195135927845;
+min_d_fromJava = 3.1622776601683795;
 lowerBound = leftMiddle - min_d_fromJava;
 upperBound = leftMiddle + min_d_fromJava;
 temp_array = [];
@@ -222,7 +222,7 @@ print("- Point : " + Q10point_storage)
 # print(stringContainer)
 
 # Question 11: Completed on Java COM2031_CW file
-print("Q11: Minimal distance dL between all points to the left of L: 5.0990195135927845")
+print("Q11: Minimal distance dL between all points to the left of L: 3.1622776601683795")
 # Strip Calculation: On Java use this {new Point(-6.0,-5.0),new Point(-5.0,3.0),new Point(-4.0,-1.0),new Point(-3.0,-6.0)}
 
 print("Q12: Comma-separated list of indices i of the points SR that are in the δ-strip around LR (leave empty if none): dR 2.23606797749979 ")
