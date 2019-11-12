@@ -229,6 +229,8 @@ print("Q12: Comma-separated list of indices i of the points SR that are in the Î
 min_d_fromJava = 2.23606797749979;
 lowerBound = rightMiddle - min_d_fromJava;
 upperBound = rightMiddle + min_d_fromJava;
+
+print(rightMiddle)
 Q11coord_storage = ""
 Q11point_storage = ""
 for i in range(0,len(coord2)):
